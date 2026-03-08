@@ -239,23 +239,42 @@
     cursorOutline.style.opacity = '1';
   })();
 
-  // ---------- CONTACT FORM HANDLER (DISPLAY SUCCESS IN PLACE) ----------
-    // ---------- CONTACT FORM HANDLER (Web3Forms) ----------
+  // ---------- CONTACT FORM HANDLER (Web3Forms) with double-submit prevention ----------
   const contactForm = document.getElementById('contactForm');
   const formContainer = document.getElementById('contactFormContainer');
   const successMessage = document.getElementById('contactSuccessMessage');
+  let isSubmitting = false; // flag to prevent double submission
 
   window.resetContactForm = function() {
     if (formContainer && successMessage) {
       formContainer.classList.remove('hidden');
       successMessage.classList.remove('show');
       contactForm.reset();
+      // Re-enable submit button if it was disabled
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message'; // restore original text
+      }
     }
   };
 
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Prevent double submission
+      if (isSubmitting) return;
+      isSubmitting = true;
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : 'Send message';
+
+      // Disable button and show loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
 
       // Collect form data
       const formData = new FormData(contactForm);
@@ -264,6 +283,11 @@
       // Simple validation (already handled by required fields, but double-check)
       if (!data.name || !data.email || !data.message) {
         alert('Please fill in all required fields (Name, Email, Message).');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+        isSubmitting = false;
         return;
       }
 
@@ -285,12 +309,23 @@
           // Hide form, show success message
           formContainer.classList.add('hidden');
           successMessage.classList.add('show');
+          // Button will be re-enabled when resetContactForm is called
         } else {
           alert('Something went wrong. Please try again later.');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
         }
       } catch (error) {
         console.error('Error submitting form:', error);
         alert('Network error. Please check your connection and try again.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      } finally {
+        isSubmitting = false;
       }
     });
   }
