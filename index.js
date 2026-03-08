@@ -240,6 +240,7 @@
   })();
 
   // ---------- CONTACT FORM HANDLER (DISPLAY SUCCESS IN PLACE) ----------
+    // ---------- CONTACT FORM HANDLER (Web3Forms) ----------
   const contactForm = document.getElementById('contactForm');
   const formContainer = document.getElementById('contactFormContainer');
   const successMessage = document.getElementById('contactSuccessMessage');
@@ -253,23 +254,44 @@
   };
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = contactForm.querySelector('input[placeholder="Name"]').value.trim();
-      const email = contactForm.querySelector('input[placeholder="Email"]').value.trim();
-      const business = contactForm.querySelector('input[placeholder="Business name"]').value.trim();
-      const message = contactForm.querySelector('textarea').value.trim();
+      // Collect form data
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
 
-      if (!name || !email || !message) {
+      // Simple validation (already handled by required fields, but double-check)
+      if (!data.name || !data.email || !data.message) {
         alert('Please fill in all required fields (Name, Email, Message).');
         return;
       }
 
-      console.log('Form submitted:', { name, email, business, message });
+      try {
+        // Send to Web3Forms
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
 
-      formContainer.classList.add('hidden');
-      successMessage.classList.add('show');
+        const result = await response.json();
+
+        if (result.success) {
+          console.log('Form submitted successfully:', result);
+          // Hide form, show success message
+          formContainer.classList.add('hidden');
+          successMessage.classList.add('show');
+        } else {
+          alert('Something went wrong. Please try again later.');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Network error. Please check your connection and try again.');
+      }
     });
   }
 
