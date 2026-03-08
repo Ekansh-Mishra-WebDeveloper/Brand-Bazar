@@ -16,7 +16,7 @@
   <!-- Smoke canvas background -->
   <canvas id="smoke-canvas"></canvas>
 
-  <!-- STICKY NAVBAR -->
+    <!-- STICKY NAVBAR -->
   <nav class="navbar">
     <div class="container nav-container">
       <div class="logo">
@@ -38,8 +38,6 @@
       <div class="mobile-menu-toggle"><i class="fas fa-bars"></i></div>
     </div>
   </nav>
-
-  <main>
     <!-- HERO SECTION -->
     <section id="home" class="hero section">
       <div class="container hero-grid">
@@ -91,7 +89,7 @@
       </div>
     </section>
 
-    <!-- SERVICES SECTION (with modal triggers) -->
+        <!-- SERVICES SECTION (with modal triggers) -->
     <section id="services" class="section">
       <div class="container">
         <h2 class="section-title reveal">Full‑funnel social solutions</h2>
@@ -141,23 +139,22 @@
         </div>
       </div>
     </section>
-
-    <!-- SERVICE MODAL (hidden by default) -->
-    <div id="serviceModal" class="modal">
-      <div class="modal-content glass-card">
-        <span class="modal-close service-close">&times;</span>
-        <div class="modal-body">
-          <div class="modal-icon">
-            <i id="serviceIcon" class="fas fa-cog"></i>
-          </div>
-          <h2 id="serviceName"></h2>
-          <p id="serviceDescription" class="modal-description"></p>
-          <p id="serviceDetails" class="modal-details"></p>
+      <!-- SERVICE MODAL (hidden by default) -->
+  <div id="serviceModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="modal-close service-close">&times;</span>
+      <div class="modal-body">
+        <div class="modal-icon">
+          <i id="serviceIcon" class="fas fa-cog"></i>
         </div>
+        <h2 id="serviceName"></h2>
+        <p id="serviceDescription" class="modal-description"></p>
+        <p id="serviceDetails" class="modal-details"></p>
       </div>
     </div>
+  </div>
 
-    <!-- TEAM SECTION (with modal triggers) -->
+        <!-- TEAM SECTION (with modal triggers) -->
     <section id="team" class="section">
       <div class="container">
         <h2 class="section-title reveal">Meet the team</h2>
@@ -226,7 +223,6 @@
         </div>
       </div>
     </section>
-
     <!-- TESTIMONIALS (carousel) -->
     <section class="section">
       <div class="container">
@@ -279,7 +275,7 @@
       </div>
     </section>
 
-    <!-- WHAT OUR CLIENTS SAY (grid with images) -->
+        <!-- WHAT OUR CLIENTS SAY (grid with images) -->
     <section id="client-testimonials" class="section">
       <div class="container">
         <h2 class="section-title reveal">What our clients say</h2>
@@ -322,7 +318,7 @@
       </div>
     </section>
 
-    <!-- CONTACT (with Web3Forms) -->
+        <!-- CONTACT (with Web3Forms) -->
     <section id="contact" class="section">
       <div class="container">
         <h2 class="section-title reveal">Let’s grow together</h2>
@@ -331,7 +327,7 @@
             <div class="contact-form glass-card">
               <div class="form-container" id="contactFormContainer">
                 <form id="contactForm">
-                  <!-- Web3Forms access key (updated) -->
+                  <!-- Web3Forms access key -->
                   <input type="hidden" name="access_key" value="41fc0e6b-9ced-4c48-8ea8-fd45b7ec0007">
                   <!-- Optional: redirect after success (leave empty to handle with JS) -->
                   <input type="hidden" name="redirect" value="">
@@ -378,25 +374,24 @@
         </div>
       </div>
     </section>
-  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <!-- TEAM MODAL (hidden by default) -->
-    <div id="teamModal" class="modal">
-      <div class="modal-content glass-card">
-        <span class="modal-close">&times;</span>
-        <div class="modal-body">
-          <div class="modal-avatar">
-            <img id="modalAvatar" src="" alt="">
-          </div>
-          <h2 id="modalName"></h2>
-          <p id="modalRole" class="modal-role"></p>
-          <p id="modalBio" class="modal-bio"></p>
-          <div id="modalSocial" class="modal-social"></div>
+  <div id="teamModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="modal-close">&times;</span>
+      <div class="modal-body">
+        <div class="modal-avatar">
+          <img id="modalAvatar" src="" alt="">
         </div>
+        <h2 id="modalName"></h2>
+        <p id="modalRole" class="modal-role"></p>
+        <p id="modalBio" class="modal-bio"></p>
+        <div id="modalSocial" class="modal-social"></div>
       </div>
     </div>
+  </div>
     <div class="container footer-grid">
       <div>
         <div class="logo">Brand Bazar</div>
