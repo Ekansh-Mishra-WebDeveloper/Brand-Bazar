@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Bazar · Social Media Agency</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Smoke canvas background -->
+  <canvas id="smoke-canvas"></canvas>
+
+    <!-- STICKY NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="path/to/your-logo.png" alt="Brand Bazar">
+        </div>
+        <span class="logo-text">Brand Bazar</span>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#client-testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+919555535824" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
+      </div>
+      <div class="mobile-menu-toggle"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero section">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <h1>We Turn <span class="highlight">Social Media</span> Into Revenue</h1>
+          <p class="hero-sub">Data‑driven strategies, creative content, and paid ads that deliver real ROI for brands ready to scale.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <!-- <a href="#case-studies" class="btn btn-outline">View Case Studies</a> -->
+          </div>
+          <div class="social-icons">
+            <i class="fab fa-instagram"></i><i class="fab fa-tiktok"></i><i class="fab fa-facebook"></i><i class="fab fa-linkedin"></i><i class="fab fa-x-twitter"></i>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="dashboard-illu glass-card">
+            <div style="display: flex; justify-content: space-between; color: #bbb;">
+              <span>📈 Impressions +156%</span> <span>⬆️ Engagement</span>
+            </div>
+            <div class="chart-bar">
+              <div class="bar" style="height: 90px;"></div>
+              <div class="bar" style="height: 140px;"></div>
+              <div class="bar" style="height: 220px;"></div>
+              <div class="bar" style="height: 170px;"></div>
+              <div class="bar" style="height: 200px;"></div>
+              <div class="bar" style="height: 110px;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 25px; color: #aaa;">
+              <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Driving real growth, not likes</h2>
+        <p class="section-sub reveal">We’re a team of ex‑marketers from Meta & Google, now helping brands own their niche.</p>
+        <div class="about-stats reveal">
+          <div class="stat-item"><h3><span class="counter" data-target="8">0</span>+</h3> <p>Years of experience</p></div>
+          <div class="stat-item"><h3><span class="counter" data-target="240">0</span>+</h3> <p>Clients served</p></div>
+          <div class="stat-item"><h3><span class="counter" data-target="6">0</span></h3> <p>Platforms mastered</p></div>
+        </div>
+        <div class="platform-icons reveal">
+          <i class="fab fa-instagram"></i><i class="fab fa-facebook"></i><i class="fab fa-tiktok"></i><i class="fab fa-linkedin"></i>
+        </div>
+      </div>
+    </section>
+
+        <!-- SERVICES SECTION (with modal triggers) -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Full‑funnel social solutions</h2>
+        <div class="services-grid">
+          <!-- Social Media Management -->
+          <div class="service-card glass-card reveal" data-service="management">
+            <i class="fas fa-chart-line"></i>
+            <h3>Social Media Management</h3>
+            <p>Organic growth, community & daily engagement.</p>
+            <a href="#" class="learn-more" onclick="event.preventDefault()">Learn more →</a>
+          </div>
+          <!-- Content Creation -->
+          <div class="service-card glass-card reveal" data-service="content">
+            <i class="fas fa-pen-fancy"></i>
+            <h3>Content Creation</h3>
+            <p>Scroll‑stopping video & creative.</p>
+            <a href="#" class="learn-more" onclick="event.preventDefault()">Learn more →</a>
+          </div>
+          <!-- Paid Ads Campaigns -->
+          <div class="service-card glass-card reveal" data-service="ads">
+            <i class="fas fa-ad"></i>
+            <h3>Paid Ads Campaigns</h3>
+            <p>ROAS‑focused Meta/TikTok ads.</p>
+            <a href="#" class="learn-more" onclick="event.preventDefault()">Learn more →</a>
+          </div>
+          <!-- Influencer Marketing -->
+          <div class="service-card glass-card reveal" data-service="influencer">
+            <i class="fas fa-star"></i>
+            <h3>Influencer Marketing</h3>
+            <p>Strategic partnerships that convert.</p>
+            <a href="#" class="learn-more" onclick="event.preventDefault()">Learn more →</a>
+          </div>
+          <!-- Brand Strategy -->
+          <div class="service-card glass-card reveal" data-service="strategy">
+            <i class="fas fa-bullseye"></i>
+            <h3>Brand Strategy</h3>
+            <p>Positioning & voice that stands out.</p>
+            <a href="#" class="learn-more" onclick="event.preventDefault()">Learn more →</a>
+          </div>
+          <!-- Analytics & Growth -->
+          <div class="service-card glass-card reveal" data-service="analytics">
+            <i class="fas fa-magnifying-glass-chart"></i>
+            <h3>Analytics & Growth</h3>
+            <p>Weekly reporting & actionable insights.</p>
+            <a href="#" class="learn-more" onclick="event.preventDefault()">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+      <!-- SERVICE MODAL (hidden by default) -->
+  <div id="serviceModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="modal-close service-close">&times;</span>
+      <div class="modal-body">
+        <div class="modal-icon">
+          <i id="serviceIcon" class="fas fa-cog"></i>
+        </div>
+        <h2 id="serviceName"></h2>
+        <p id="serviceDescription" class="modal-description"></p>
+        <p id="serviceDetails" class="modal-details"></p>
+      </div>
+    </div>
+  </div>
+
+        <!-- TEAM SECTION (with modal triggers) -->
+    <section id="team" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Meet the team</h2>
+        <p class="section-sub reveal">Creative minds behind your brand's success.</p>
+        <div class="team-grid">
+          <!-- Founder & CEO -->
+          <div class="team-card glass-card reveal" data-member="alex">
+            <div class="team-avatar">
+              <img src="WhatsApp Image 2024-04-07 at 12.13.45_c8b76524.jpg" alt="Alex Morgan">
+            </div>
+            <h3>Vivek Mishra</h3>
+            <p class="team-role">Founder & CEO</p>
+            <div class="team-social">
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-linkedin"></i></a>
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <!-- Head of Strategy -->
+          <div class="team-card glass-card reveal" data-member="jamie">
+            <div class="team-avatar">
+              <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Jamie Lee">
+            </div>
+            <h3>Jamie Lee</h3>
+            <p class="team-role">Head of Strategy</p>
+            <div class="team-social">
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-linkedin"></i></a>
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <!-- Creative Director -->
+          <div class="team-card glass-card reveal" data-member="casey">
+            <div class="team-avatar">
+              <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Casey Park">
+            </div>
+            <h3>Casey Park</h3>
+            <p class="team-role">Creative Director</p>
+            <div class="team-social">
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-linkedin"></i></a>
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <!-- Lead Analyst -->
+          <div class="team-card glass-card reveal" data-member="riley">
+            <div class="team-avatar">
+              <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Riley Smith">
+            </div>
+            <h3>Riley Smith</h3>
+            <p class="team-role">Lead Analyst</p>
+            <div class="team-social">
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-linkedin"></i></a>
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <!-- Content Lead -->
+          <div class="team-card glass-card reveal" data-member="taylor">
+            <div class="team-avatar">
+              <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Taylor Wong">
+            </div>
+            <h3>Taylor Wong</h3>
+            <p class="team-role">Content Lead</p>
+            <div class="team-social">
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-linkedin"></i></a>
+              <a href="#" onclick="event.stopPropagation()"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- TESTIMONIALS (carousel) -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Kind words</h2>
+        <div class="carousel reveal" id="testimonialCarousel">
+          <button class="carousel-arrow prev" aria-label="Previous testimonial">‹</button>
+          <button class="carousel-arrow next" aria-label="Next testimonial">›</button>
+          <div class="testimonial-slide active glass-card">
+            <div class="client-img">
+              <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Jessica Wright">
+            </div>
+            <p class="stars">★★★★★</p>
+            <p class="testimonial-text">"Brand Bazar doubled our e‑commerce revenue in 4 months. Their TikTok strategy is genius."</p>
+            <p><strong>– Jessica Wright</strong>, CEO of Aurelle</p>
+          </div>
+          <div class="testimonial-slide glass-card">
+            <div class="client-img">
+              <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="David Chen">
+            </div>
+            <p class="stars">★★★★★</p>
+            <p class="testimonial-text">"Finally an agency that understands B2B. We now get 30+ qualified leads weekly from LinkedIn."</p>
+            <p><strong>– David Chen</strong>, Founder of SaaSGrid</p>
+          </div>
+          <div class="testimonial-slide glass-card">
+            <div class="client-img">
+              <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Maria Garcia">
+            </div>
+            <p class="stars">★★★★★</p>
+            <p class="testimonial-text">"The team's content creation is top‑notch. Our engagement went up 500% in two months."</p>
+            <p><strong>– Maria Garcia</strong>, Marketing Director</p>
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Flexible plans</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card glass-card reveal"><h3>Starter</h3><div class="price">$1.8k<span>/mo</span></div><ul><li><i class="fas fa-check"></i> 2 social channels</li><li><i class="fas fa-check"></i> 10 posts/month</li><li><i class="fas fa-check"></i> Community management</li></ul><a href="#" class="btn btn-outline">Choose plan</a></div>
+          <div class="pricing-card glass-card popular reveal"><span class="popular-badge">MOST POPULAR</span><h3>Growth</h3><div class="price">$3.5k<span>/mo</span></div><ul><li><i class="fas fa-check"></i> 4 channels</li><li><i class="fas fa-check"></i> 20 posts + 4 Reels</li><li><i class="fas fa-check"></i> Paid ads management</li></ul><a href="#" class="btn btn-primary">Choose plan</a></div>
+          <div class="pricing-card glass-card reveal"><h3>Enterprise</h3><div class="price">$7.5k<span>/mo</span></div><ul><li><i class="fas fa-check"></i> Unlimited channels</li><li><i class="fas fa-check"></i> Custom content series</li><li><i class="fas fa-check"></i> Dedicated strategist</li></ul><a href="#" class="btn btn-outline">Contact us</a></div>
+        </div>
+      </div>
+    </section>
+
+        <!-- WHAT OUR CLIENTS SAY (grid with images) -->
+    <section id="client-testimonials" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">What our clients say</h2>
+        <p class="section-sub reveal">Real feedback from brands we’ve helped grow.</p>
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item glass-card reveal">
+            <div class="testimonial-avatar">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Jenkins">
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">"Brand Bazar transformed our Instagram presence. We gained 50k followers and saw a 200% increase in sales in just 3 months."</p>
+              <h4>Sarah Jenkins</h4>
+              <p class="testimonial-role">Marketing Director, Glow Cosmetics</p>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-item glass-card reveal">
+            <div class="testimonial-avatar">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike Chen">
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">"Their TikTok ad campaigns are pure gold. We hit a 5x ROAS and our brand went viral twice. Highly recommended!"</p>
+              <h4>Mike Chen</h4>
+              <p class="testimonial-role">Founder, FitGear</p>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-item glass-card reveal">
+            <div class="testimonial-avatar">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Rodriguez">
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-quote">"The team's strategic approach to LinkedIn helped us connect with enterprise clients. Our pipeline grew by 300% in six months."</p>
+              <h4>Lisa Rodriguez</h4>
+              <p class="testimonial-role">VP of Sales, CloudSoft</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Let’s grow together</h2>
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="contact-form glass-card">
+              <div class="form-container" id="contactFormContainer">
+                <form id="contactForm">
+                  <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Name" required>
+                  </div>
+                  <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
+                  </div>
+                  <div class="form-group">
+                    <i class="fas fa-building"></i>
+                    <input type="text" placeholder="Business name">
+                  </div>
+                  <div class="form-group textarea-group">
+                    <i class="fas fa-pencil-alt"></i>
+                    <textarea rows="4" placeholder="Message" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Send message</button>
+                </form>
+              </div>
+              <div class="success-message" id="contactSuccessMessage">
+                <i class="fas fa-check-circle"></i>
+                <h3>Thank You!</h3>
+                <p>Your enquiry has been received. We will contact you within 24 hours.</p>
+                <button class="btn btn-outline" onclick="resetContactForm()">Send another message</button>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="contact-info glass-card">
+              <p><i class="fas fa-envelope"></i> hello@brandbazar.agency</p>
+              <p><i class="fas fa-phone-alt"></i> +1 (800) 123-4567</p>
+              <p><i class="fas fa-map-marker-alt"></i> 123 Madison Ave, NYC</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <!-- TEAM MODAL (hidden by default) -->
+  <div id="teamModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="modal-close">&times;</span>
+      <div class="modal-body">
+        <div class="modal-avatar">
+          <img id="modalAvatar" src="" alt="">
+        </div>
+        <h2 id="modalName"></h2>
+        <p id="modalRole" class="modal-role"></p>
+        <p id="modalBio" class="modal-bio"></p>
+        <div id="modalSocial" class="modal-social"></div>
+      </div>
+    </div>
+  </div>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">Brand Bazar</div>
+        <p style="margin-top:16px;">© 2025 agency. All rights reserved.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <p>
+          <a href="#home">Home</a><br>
+          <a href="#about">About</a><br>
+          <a href="#services">Services</a><br>
+          <a href="#team">Team</a><br>
+          <a href="#pricing">Pricing</a><br>
+          <a href="#client-testimonials">Testimonials</a>
+        </p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <p>
+          <a href="#services">Management</a><br>
+          <a href="#services">Ads</a><br>
+          <a href="#services">Strategy</a>
+        </p>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Brand Bazar — Social Media That Pays.</div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="index.js"></script>
+</body>
+</html>
