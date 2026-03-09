@@ -100,73 +100,80 @@
   }, { threshold: 0.5 });
   counters.forEach(c => counterObserver.observe(c));
 
-  // ---------- TESTIMONIAL CAROUSEL WITH ARROWS AND AUTO SLIDE ----------
-  const carousel = document.getElementById('testimonialCarousel');
-  const slides = document.querySelectorAll('.testimonial-slide');
-  const dots = document.querySelectorAll('.dot');
-  const prevBtn = document.querySelector('.carousel-arrow.prev');
-  const nextBtn = document.querySelector('.carousel-arrow.next');
-  
-  let currentIndex = 0;
-  let autoSlideInterval;
-  const slideIntervalTime = 3000; // 3 seconds
+   // ---------- CAROUSEL INITIALIZER (reusable) ----------
+  function initCarousel(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
 
-  function showSlide(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    
-    slides.forEach((s, i) => s.classList.toggle('active', i === index));
-    dots.forEach((d, i) => d.classList.toggle('active', i === index));
-    currentIndex = index;
-  }
+    const slides = carousel.querySelectorAll('.testimonial-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const prevBtn = carousel.querySelector('.carousel-arrow.prev');
+    const nextBtn = carousel.querySelector('.carousel-arrow.next');
 
-  function nextSlide() {
-    showSlide(currentIndex + 1);
-  }
+    let currentIndex = 0;
+    let autoSlideInterval;
+    const slideIntervalTime = 3000; // 3 seconds
 
-  function prevSlide() {
-    showSlide(currentIndex - 1);
-  }
-
-  function startAutoSlide() {
-    if (autoSlideInterval) clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(nextSlide, slideIntervalTime);
-  }
-
-  function stopAutoSlide() {
-    if (autoSlideInterval) {
-      clearInterval(autoSlideInterval);
-      autoSlideInterval = null;
+    function showSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      currentIndex = index;
     }
-  }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => {
-    prevSlide();
-    stopAutoSlide();
-    startAutoSlide();
-  });
-  if (nextBtn) nextBtn.addEventListener('click', () => {
-    nextSlide();
-    stopAutoSlide();
-    startAutoSlide();
-  });
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
 
-  if (dots.length) {
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        showSlide(i);
-        stopAutoSlide();
-        startAutoSlide();
-      });
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function startAutoSlide() {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(nextSlide, slideIntervalTime);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+      }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+      prevSlide();
+      stopAutoSlide();
+      startAutoSlide();
     });
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+      nextSlide();
+      stopAutoSlide();
+      startAutoSlide();
+    });
+
+    if (dots.length) {
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          showSlide(i);
+          stopAutoSlide();
+          startAutoSlide();
+        });
+      });
+    }
+
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopAutoSlide);
+      carousel.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    startAutoSlide();
   }
 
-  if (carousel) {
-    carousel.addEventListener('mouseenter', stopAutoSlide);
-    carousel.addEventListener('mouseleave', startAutoSlide);
-  }
-
-  startAutoSlide();
+  // Initialize both carousels
+  initCarousel('testimonialCarousel');
+  initCarousel('reelCarousel');
 
   // ---------- MOBILE MENU TOGGLE ----------
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
@@ -177,67 +184,67 @@
   }
 
   // ---------- PREMIUM CURSOR EFFECT ----------
-  (function initCursor() {
-    if (!window.matchMedia('(pointer: fine)').matches || 'ontouchstart' in window) {
-      document.body.style.cursor = 'auto';
-      return;
-    }
+  // (function initCursor() {
+  //   if (!window.matchMedia('(pointer: fine)').matches || 'ontouchstart' in window) {
+  //     document.body.style.cursor = 'auto';
+  //     return;
+  //   }
 
-    const cursorDot = document.createElement('div');
-    const cursorOutline = document.createElement('div');
-    cursorDot.className = 'cursor-dot';
-    cursorOutline.className = 'cursor-outline';
-    document.body.appendChild(cursorDot);
-    document.body.appendChild(cursorOutline);
+  //   const cursorDot = document.createElement('div');
+  //   const cursorOutline = document.createElement('div');
+  //   cursorDot.className = 'cursor-dot';
+  //   cursorOutline.className = 'cursor-outline';
+  //   document.body.appendChild(cursorDot);
+  //   document.body.appendChild(cursorOutline);
 
-    let mouseX = 0, mouseY = 0;
-    let outlineX = 0, outlineY = 0;
-    const speed = 0.15;
+  //   let mouseX = 0, mouseY = 0;
+  //   let outlineX = 0, outlineY = 0;
+  //   const speed = 0.15;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-    });
+  //   document.addEventListener('mousemove', (e) => {
+  //     mouseX = e.clientX;
+  //     mouseY = e.clientY;
+  //     cursorDot.style.left = mouseX + 'px';
+  //     cursorDot.style.top = mouseY + 'px';
+  //   });
 
-    function animateOutline() {
-      outlineX += (mouseX - outlineX) * speed;
-      outlineY += (mouseY - outlineY) * speed;
-      cursorOutline.style.left = outlineX + 'px';
-      cursorOutline.style.top = outlineY + 'px';
-      requestAnimationFrame(animateOutline);
-    }
-    animateOutline();
+  //   function animateOutline() {
+  //     outlineX += (mouseX - outlineX) * speed;
+  //     outlineY += (mouseY - outlineY) * speed;
+  //     cursorOutline.style.left = outlineX + 'px';
+  //     cursorOutline.style.top = outlineY + 'px';
+  //     requestAnimationFrame(animateOutline);
+  //   }
+  //   animateOutline();
 
-    const interactiveElements = document.querySelectorAll(
-      'a, button, .btn, input, textarea, .service-card, .pricing-card, .portfolio-item, .blog-card, .case-card, .learn-more, .social-icons i, .team-card, .testimonial-item'
-    );
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursorOutline.classList.add('hover');
-        cursorDot.style.transform = 'translate(-50%, -50%) scale(1.8)';
-        cursorDot.style.backgroundColor = '#8b5cf6';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursorOutline.classList.remove('hover');
-        cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursorDot.style.backgroundColor = 'white';
-      });
-    });
+  //   const interactiveElements = document.querySelectorAll(
+  //     'a, button, .btn, input, textarea, .service-card, .pricing-card, .portfolio-item, .blog-card, .case-card, .learn-more, .social-icons i, .team-card, .testimonial-item'
+  //   );
+  //   interactiveElements.forEach(el => {
+  //     el.addEventListener('mouseenter', () => {
+  //       cursorOutline.classList.add('hover');
+  //       cursorDot.style.transform = 'translate(-50%, -50%) scale(1.8)';
+  //       cursorDot.style.backgroundColor = '#8b5cf6';
+  //     });
+  //     el.addEventListener('mouseleave', () => {
+  //       cursorOutline.classList.remove('hover');
+  //       cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+  //       cursorDot.style.backgroundColor = 'white';
+  //     });
+  //   });
 
-    document.addEventListener('mouseleave', () => {
-      cursorDot.style.opacity = '0';
-      cursorOutline.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-      cursorDot.style.opacity = '1';
-      cursorOutline.style.opacity = '1';
-    });
+  //   document.addEventListener('mouseleave', () => {
+  //     cursorDot.style.opacity = '0';
+  //     cursorOutline.style.opacity = '0';
+  //   });
+  //   document.addEventListener('mouseenter', () => {
+  //     cursorDot.style.opacity = '1';
+  //     cursorOutline.style.opacity = '1';
+  //   });
 
-    cursorDot.style.opacity = '1';
-    cursorOutline.style.opacity = '1';
-  })();
+  //   cursorDot.style.opacity = '1';
+  //   cursorOutline.style.opacity = '1';
+  // })();
 
   // ---------- CONTACT FORM HANDLER (Web3Forms) with double-submit prevention ----------
   const contactForm = document.getElementById('contactForm');
@@ -342,50 +349,50 @@
   const modalSocial = document.getElementById('modalSocial');
 
   const teamData = {
-    alex: {
-      name: 'Alex Morgan',
+    vivek: {
+      name: 'Vivek Mishra',
       role: 'Founder & CEO',
-      bio: 'Alex has over 15 years of experience in digital marketing and brand strategy. He founded Brand Bazar to help businesses unlock their social media potential.',
+      bio: 'Vivek has over 2 years of experience in digital marketing and brand strategy. He founded Brand Bazar to help businesses unlock their social media potential.',
       social: {
         linkedin: 'https://linkedin.com/in/alexmorgan',
         twitter: 'https://twitter.com/alexmorgan'
       },
       avatar: 'https://randomuser.me/api/portraits/men/1.jpg'
     },
-    jamie: {
-      name: 'Jamie Lee',
-      role: 'Head of Strategy',
-      bio: 'Jamie is a former Meta strategist who has planned and executed campaigns for Fortune 500 companies. She ensures every move is data‑backed.',
+    suryansh: {
+      name: 'Suryansh Srivastava',
+      role: 'Creative Director',
+      bio: 'Suryansh is a creative strategist who has planned and executed campaigns for over 20 clients. He ensures every move is data‑backed.',
       social: {
         linkedin: 'https://linkedin.com/in/jamielee',
         twitter: 'https://twitter.com/jamielee'
       },
       avatar: 'https://randomuser.me/api/portraits/women/1.jpg'
     },
-    casey: {
-      name: 'Casey Park',
-      role: 'Creative Director',
-      bio: 'Casey brings ideas to life with stunning visuals and storytelling. His work has been featured in Adweek and Communication Arts.',
+    devansh: {
+      name: 'Devansh Jauhari',
+      role: 'Manager',
+      bio: 'Devansh brings the best management with strong values. He looks over the investments and finances.',
       social: {
         linkedin: 'https://linkedin.com/in/caseypark',
         twitter: 'https://twitter.com/caseypark'
       },
       avatar: 'https://randomuser.me/api/portraits/men/2.jpg'
     },
-    riley: {
-      name: 'Riley Smith',
-      role: 'Lead Analyst',
-      bio: 'Riley turns complex data into actionable insights. He specializes in attribution modelling and conversion rate optimisation.',
+    rudransh: {
+      name: 'Rudransh Kanaujiya',
+      role: 'Content Creator',
+      bio: 'Rudransh is a mind blowing, young content creator & social media manager. He specializes in youth centric content.',
       social: {
         linkedin: 'https://linkedin.com/in/rileysmith',
         twitter: 'https://twitter.com/rileysmith'
       },
       avatar: 'https://randomuser.me/api/portraits/men/3.jpg'
     },
-    taylor: {
-      name: 'Taylor Wong',
-      role: 'Content Lead',
-      bio: 'Taylor creates scroll‑stopping content that resonates with audiences. She has a knack for viral trends and authentic storytelling.',
+    ekansh: {
+      name: 'Ekansh Mishra',
+      role: 'Web Developer',
+      bio: 'Ekansh is a young and visionary web developer. He has a knack for tech and coding.',
       social: {
         linkedin: 'https://linkedin.com/in/taylorwong',
         twitter: 'https://twitter.com/taylorwong'
@@ -466,11 +473,11 @@
       details: 'We design and manage data‑driven ad campaigns on Meta, TikTok, and other platforms. Our experts optimize for conversions, ensuring you get the highest return on your ad spend with detailed performance tracking.',
       icon: 'fa-ad'
     },
-    influencer: {
-      name: 'Influencer Marketing',
-      description: 'Strategic influencer partnerships',
-      details: 'We connect your brand with the right influencers to build authentic relationships and drive sales. From macro to micro‑influencers, we handle outreach, negotiations, and campaign management.',
-      icon: 'fa-star'
+     influencer: {
+      name: 'Professional Shoots',
+      description: 'Capturing your brand in 4K',
+      details: 'Nothing builds trust like real, high-quality visuals. Whether it’s a school campus, an event, or a product launch, our team provides professional photography and video shoots to showcase your business in the best light.',
+      icon: 'fa-camera'
     },
     strategy: {
       name: 'Brand Strategy',
@@ -479,11 +486,12 @@
       icon: 'fa-bullseye'
     },
     analytics: {
-      name: 'Analytics & Growth Tracking',
-      description: 'Actionable insights & reporting',
-      details: 'We provide weekly reports and deep‑dive analytics to track your growth. Our team identifies trends, measures ROI, and continuously refines strategies to ensure your social media efforts deliver real business results.',
-      icon: 'fa-magnifying-glass-chart'
+      name: 'Web Development',
+      description: 'Professional websites that work for you',
+      details: 'Your website is your 24/7 digital office. We build fast, mobile-friendly, and modern websites (like this one!) that turn visitors into customers. From landing pages to full business sites, we code for success.',
+      icon: 'fa-code'
     }
+
   };
 
   function openServiceModal(serviceId) {
