@@ -922,16 +922,41 @@ input:focus + i, textarea:focus + i {
   box-shadow: 0 15px 30px -6px #8b5cf6;
 }
 
-.contact-info {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 32px;
-  padding: 40px;
+.contact-info .instagram-line a {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  align-items: center;
+  gap: 16px;
+  color: #d1d5db;          /* matches other contact text */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+/* Make email and phone lines clickable, with hover effect */
+.contact-info p a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #d1d5db;
+  text-decoration: none;
+  width: 100%;
+  transition: color 0.2s;
+}
+
+.contact-info p a:hover {
+  color: #8b5cf6;
+}
+
+.contact-info .instagram-line a:hover {
+  color: #8b5cf6;           /* gradient start color on hover */
+}
+
+.contact-info .instagram-line i {
+  font-size: 1.5rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: 32px;
+  text-align: center;
 }
 
 .contact-info p {
