@@ -348,56 +348,56 @@
   const modalBio = document.getElementById('modalBio');
   const modalSocial = document.getElementById('modalSocial');
 
-  const teamData = {
+    const teamData = {
     vivek: {
       name: 'Vivek Mishra',
       role: 'Founder & CEO',
       bio: 'Vivek has over 2 years of experience in digital marketing and brand strategy. He founded Brand Bazar to help businesses unlock their social media potential.',
       social: {
-        linkedin: 'https://linkedin.com/in/alexmorgan',
-        twitter: 'https://twitter.com/alexmorgan'
+        instagram: 'https://www.instagram.com/daddy_dedpool?igsh=NWNtM3hvZ21waTc1',
+        whatsapp: 'https://wa.me/919555535824'
       },
-      avatar: 'https://randomuser.me/api/portraits/men/1.jpg'
+      avatar: 'vivek_2.png'
     },
     suryansh: {
       name: 'Suryansh Srivastava',
       role: 'Creative Director',
       bio: 'Suryansh is a creative strategist who has planned and executed campaigns for over 20 clients. He ensures every move is data‑backed.',
       social: {
-        linkedin: 'https://linkedin.com/in/jamielee',
-        twitter: 'https://twitter.com/jamielee'
+        instagram: 'https://www.instagram.com/whyysuryansh?igsh=dTY2eW8wcHd0a3Nx',
+        whatsapp: 'https://wa.me/918707637321'
       },
-      avatar: 'https://randomuser.me/api/portraits/women/1.jpg'
+      avatar: 'suryansh_.png'
     },
     devansh: {
       name: 'Devansh Jauhari',
       role: 'Manager',
       bio: 'Devansh brings the best management with strong values. He looks over the investments and finances.',
       social: {
-        linkedin: 'https://linkedin.com/in/caseypark',
-        twitter: 'https://twitter.com/caseypark'
+        instagram: '#',
+        whatsapp: 'https://wa.me/917905054727'
       },
-      avatar: 'https://randomuser.me/api/portraits/men/2.jpg'
+      avatar: 'devansh_.png'
     },
     rudransh: {
       name: 'Rudransh Kanaujiya',
       role: 'Content Creator',
       bio: 'Rudransh is a mind blowing, young content creator & social media manager. He specializes in youth centric content.',
       social: {
-        linkedin: 'https://linkedin.com/in/rileysmith',
-        twitter: 'https://twitter.com/rileysmith'
+        instagram: 'https://www.instagram.com/rudraaansssh?igsh=bnd1bGhwaHM3cmw1&utm_source=qr',
+        whatsapp: 'https://wa.me/917307290169'
       },
-      avatar: 'https://randomuser.me/api/portraits/men/3.jpg'
+      avatar: 'rudransh_.png'
     },
     ekansh: {
       name: 'Ekansh Mishra',
       role: 'Web Developer',
       bio: 'Ekansh is a young and visionary web developer. He has a knack for tech and coding.',
       social: {
-        linkedin: 'https://linkedin.com/in/taylorwong',
-        twitter: 'https://twitter.com/taylorwong'
+        instagram: 'https://www.instagram.com/daddy_dedpool?igsh=NWNtM3hvZ21waTc1',
+        whatsapp: 'https://wa.me/918953922389'
       },
-      avatar: 'https://randomuser.me/api/portraits/women/2.jpg'
+      avatar: 'ekansh_2.png'
     }
   };
 
